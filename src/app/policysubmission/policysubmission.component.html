@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="cards-container">
+      <div class="cards-form">
+       
+        <!-- <form #f="ngForm" (ngSubmit)="onSubmit()"> -->
+          <form
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          validate
+        >
+        <div class="form-group">
+          <span style="font-style:bold" name="mid">Member ID : &nbsp;</span>
+          <!-- <span
+            name="mid"
+            [(ngModel)]="fields.memberID"
+            #mid="ngModel"
+          >
+          </span> -->
+          <span name="memberId" [innerHTML]="fields.memberID"></span>
+        </div>
+        <!-- <div class="form-group">
+          <label for="policystatus">Policy Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="policystatus"
+            [(ngModel)]="fields.policyStatus"
+            required
+            #policystatus="ngModel"
+          />
+         
+          <div class="alert-danger" *ngIf="f.submitted && policystatus.invalid">
+            <div style="Color:red" *ngIf="policystatus.errors?.['required']">policystatus is required</div>
+          </div>
+        </div> -->
+            <div class="form-group">
+                <label for="policytype">Policy Type</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="policytype"
+                  [(ngModel)]="fields.PolicyType"
+                  required
+                  #policytype="ngModel"
+                />
+                <div class="alert-danger" *ngIf="f.submitted && policytype.invalid">
+                  <div style="Color:red" *ngIf="policytype.errors?.['required']">PolicyType is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="premiumamount">Premium Amount</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="premiumamount"
+                  [(ngModel)]="fields.PremiumAmount"
+                  required
+                  #premiumamount="ngModel"
+                />
+               
+                <div class="alert-danger" *ngIf="f.submitted && premiumamount.invalid">
+                  <div style="Color:red" *ngIf="premiumamount.errors?.['required']">PremiumAmount is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="claimdate">Claim Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="claimdate"
+                  [(ngModel)]="fields.PolicyEffectiveDate"
+                  required
+                  #claimdate="ngModel"
+                />
+                <div class="alert-danger" *ngIf="f.submitted && claimdate.invalid">
+                  <div style="Color:red" *ngIf="claimdate.errors?.['required']">Claim Date is required</div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="remark">Remarks</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="remark"
+                  [(ngModel)]="fields.remark"
+                  required
+                  #remark="ngModel"
+                />
+                <!-- <div class="alert-danger" *ngIf="f.submitted && remark.invalid">
+                  <div style="Color:red" *ngIf="remark.errors?.['required']"> required</div>
+                </div> -->
+              </div>
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="onSubmit()">Add Claim</button>
+              </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+

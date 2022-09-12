@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="cards-container">
+      <div class="cards-form">
+        <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="form-group">
+            <label for="username">UserName</label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="user.userName"
+              required
+              minlength="3"
+              maxlength="20"
+              #username="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+              <div style="Color:red" *ngIf="username.errors?.['required']">Username is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              [(ngModel)]="user.password"
+              required
+              minlength="6"
+              #password="ngModel"
+            />
+            <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+              <div style="Color:red" *ngIf="password.errors?.['required']">Password is required</div>
+              <div *ngIf="password.errors?.['minlength']">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+       
+          <div class="form-group">
+            <label for="userrole">UserRole</label>
+            <select 
+            class="form-control" 
+            name="userrole"
+            [(ngModel)]="user.userRole"
+            required
+            #userrole="ngModel">
+            <option value="Admin">Admin</option>
+            <option value="Member">Member</option>
+            </select>
+            <div class="alert-danger" *ngIf="f.submitted && userrole.invalid">
+              <div style="Color:red" *ngIf="userrole.errors?.['required']">Userrole is required</div>
+            </div>
+          </div>
+      
+      <div class="form-group">
+        <!-- <a href='member'  type="button" class="btn btn-primary btn-block" (click)="onSubmit(f)" >Register</a> -->
+        <button   class="btn btn-primary btn-block" 
+        (click)="onSubmit(f)">Register</button>
+      </div>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+        </form>
+  </div>
+    
+  </div>
+</div>
