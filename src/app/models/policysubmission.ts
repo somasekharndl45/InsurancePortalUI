@@ -5,5 +5,5 @@ export interface PolicyFields {
     PremiumAmount:any,
     PolicyEffectiveDate: string,
     remark:string,
-    memberID : any
+    memberId : any
 }
