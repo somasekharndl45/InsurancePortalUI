@@ -14,9 +14,11 @@ export class MembersearchComponent implements OnInit {
 members:any = {};
 
 member:MemberRegister={
-  memberID : 0,
+  memberId : 0,
   policyId : 0,
   policyStatus : '',
+  policyType:'',
+  premiumAmount:'',
     userName : '',
     firstName : '',
     lastName : '',
@@ -66,7 +68,7 @@ norecord(){
       response =>{
         this.members = response;
         console.log(this.members)
-        localStorage.setItem("example",this.member.memberID.toString());
+        localStorage.setItem("example",this.member.memberId.toString());
       console.log(localStorage.getItem("example")?.toString());
         this.router.navigate(['/policysubmission']);
       }

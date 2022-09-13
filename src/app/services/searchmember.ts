@@ -18,10 +18,11 @@ import { MemberRegister } from '../models/memberregistration';
 
 MemberSearch(search:MemberRegister):Observable<any>{
     let queryparams = new HttpParams();
-    queryparams = queryparams.append("MemberID",search.memberID);
+    queryparams = queryparams.append("MemberId",search.memberId);
     queryparams = queryparams.append("FirstName",search.firstName);
     queryparams = queryparams.append("LastName",search.lastName);
-
+    queryparams = queryparams.append("policyStatus",search.policyStatus);
+     
     return this.http.get<any>(this.Url,{params:queryparams});
 }
 

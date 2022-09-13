@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Credentials } from './models/credentials';
 import { LoginServices } from './services/signinservice';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,18 +27,11 @@ export class AppComponent implements OnInit {
 
   showAdminBoard = false
   showMemberBoard = false
-
+  userName: string | null = ''
   constructor(private loginservice : LoginServices, private router: Router){}
 
 ngOnInit(): void {
-  // const role = this.tokenStorageService.getRole() 
-  // if(role == 'Author')
-  //       this.showAdminBoard = true          
-  //     else
-  //       this.showMemberBoard = true 
-  //     this.username = user
-
-
+  
 
   if(this.userRole == 'Admin'){
     this.isAdmin = true

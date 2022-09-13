@@ -11,6 +11,9 @@ import { MemberComponent } from './member/member.component';
 import { SigninComponent } from './signin/signin.component';
 import { MembersearchComponent } from './membersearch/membersearch.component';
 import { PolicysubmissionComponent } from './policysubmission/policysubmission.component';
+import { AdminaddpolicyComponent } from './adminaddpolicy/adminaddpolicy.component';
+import { AdminupdatepolicyComponent } from './adminupdatepolicy/adminupdatepolicy.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { PolicysubmissionComponent } from './policysubmission/policysubmission.c
     MemberComponent,
     SigninComponent,
     MembersearchComponent,
-    PolicysubmissionComponent
+    PolicysubmissionComponent,
+    AdminaddpolicyComponent,
+    AdminupdatepolicyComponent,
   ],
   imports: [
     BrowserModule,

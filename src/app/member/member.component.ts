@@ -10,9 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MemberComponent implements OnInit {
 
 mr:MemberRegister={
-  memberID : 0,
+  memberId : 0,
   policyId:0,
   policyStatus : '',
+  policyType:'',
+  premiumAmount:0,
     userName : '',
     firstName : '',
     lastName : '',

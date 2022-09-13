@@ -1,8 +1,8 @@
 export interface PolicyFields {
     policyID : number,
-    policyStatus : string,
-    PolicyType : string,
-    PremiumAmount:number,
+    policyStatus : any,
+    PolicyType : any,
+    PremiumAmount:any,
     PolicyEffectiveDate: string,
     remark:string,
     memberID : any

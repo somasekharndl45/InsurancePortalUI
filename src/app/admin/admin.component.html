@@ -1,1 +1,116 @@
-<p>admin works!</p>
+<div class="container">
+    <div class="cards-container">
+        <div class="cards-form">
+          <h4 style="Color:red">Admin Search</h4>
+          <form #f="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="mid">MemberID</label>
+              <input
+                type="text"
+                class="form-control"
+                name="mid"
+                [(ngModel)]="member.memberId"
+                required
+                #mid="ngModel"
+              />
+              <div style="Color:red" *ngIf="mid.errors?.['required'] && mid.touched" class="text-danger">MemberId Required.</div>
+            </div>
+            <div class="form-group">
+              <label for="firstname">FirstName</label>
+              <input
+                type="text"
+                class="form-control"
+                name="firstname"
+                [(ngModel)]="member.firstName"
+                required
+                #firstname="ngModel"
+              />
+              <div style="Color:red" *ngIf="firstname.errors?.['required'] && firstname.touched" class="text-danger">FirstName Required.</div>
+            </div>
+         
+            <div class="form-group">
+                <label for="lastname">LastName</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="lastname"
+                  [(ngModel)]="member.lastName"
+                  required
+                  #lastname="ngModel"
+                />
+                <div style="Color:red" *ngIf="lastname.errors?.['required'] && lastname.touched" class="text-danger">LastName Required.</div>
+              </div>
+              <div class="form-group">
+                <label for="policystatus">PolicyStatus</label>
+                <select 
+                class="form-control" 
+                name="policystatus"
+                [(ngModel)]="member.policyStatus"
+                required
+                #policystatus="ngModel">
+                <option value="Freelookup">Freelookup</option>
+                <option value="Active">Active</option>
+                <option value="Lapsed">Lapsed</option>
+                <option value="Surrendered">Surrendered</option>
+                <option value="Claimed">Claimed</option>
+                <option value="Loan">Loan</option>
+                </select>
+                <div class="alert-danger" *ngIf="f.submitted && policystatus.invalid">
+                  <div style="Color:red" *ngIf="policystatus.errors?.['required']">Policy Status is required</div>
+                </div>
+              </div>
+        <div class="form-group">
+            
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" (click)="onSubmit()">Search</button>
+        </div>
+          </form>
+
+    <div class="row" *ngIf = 'members[0]!="No user found" '>
+        <div class="table table-responsive" id="user" >
+            <div class="table-responsive" >
+                <table class="table table-striped border" *ngFor="let ss of members" >
+                    <thead >
+                    <tr class="table-secondary">
+                        <th>MemberID</th>
+                        <th>PolicyID</th>
+                        <th>UserName</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>PolicyStatus</th>
+                        <th>PolicyType</th>
+                        <th>PremiumAmount</th>
+                        <th>Select Member</th>
+                        <th>Select Policy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let member of ss">
+                        <td> {{member["memberId"]}} </td>
+                        <td> {{member["policyId"]}} </td>
+                        <td> {{member.userName}} </td>
+                        <td> {{member.firstName}} </td>
+                        <td>{{member.lastName}} </td>
+                        <td>{{member.policyStatus}} </td>
+                        <td>{{member.policyType}} </td>
+                        <td>{{member.premiumAmount}} </td>
+                        <td> <input type="checkbox"/></td>
+                        <td><input type ="checkbox" value="updates"  id="updates"  (click)="updatepolicy(member)" /> </td>
+                    </tr>
+                </tbody>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block" (click)="onRedirect()">AddClaim</button>
+                </div>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row" *ngIf = 'members[0]=="No user found" '>
+      <span style="color: red;">No records found for given inputs</span>
+    </div>
+    </div>
+    </div>
+  </div>
+  

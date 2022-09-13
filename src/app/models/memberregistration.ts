@@ -1,7 +1,9 @@
 export interface MemberRegister{
-    memberID : number,
+    memberId : number,
     policyId: number,
     policyStatus : string,
+    policyType: string,
+    premiumAmount : any,
     userName : string,
     firstName : string,
     lastName : string,
