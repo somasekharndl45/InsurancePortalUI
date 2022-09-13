@@ -26,7 +26,17 @@ export class AdminupdatepolicyComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(){
+    this.policyservices.updatepolicy(this.fields)
+    .subscribe(
+      response => {
+        console.log(response);
+      this.response = response;
+      this.router.navigate(['/admin'])
+      }
+    );
     localStorage.setItem("example",this.fields.memberID.toString());
       console.log(localStorage.getItem("example")?.toString());
   }
+    
+  
 }

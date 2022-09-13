@@ -17,7 +17,7 @@ fields : PolicyFields = {
   PremiumAmount:0,
   PolicyEffectiveDate: '',
   remark:'',
-  memberID : localStorage.getItem("example")?.toString(),
+  memberID : localStorage.getItem("examplemember")?.toString(),
 }
 
 response:any;
@@ -32,6 +32,7 @@ response:any;
       response => {
         console.log(response);
       this.response = response;
+      this.router.navigate(['/member']);
       }
     );
   }
