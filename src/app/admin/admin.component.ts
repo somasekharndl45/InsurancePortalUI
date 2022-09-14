@@ -65,9 +65,11 @@ export class AdminComponent implements OnInit {
       response =>{
         this.member = response;
         console.log(member);
-        localStorage.setItem("exampleadmin",member.memberId.toString());
-      console.log(localStorage.getItem("exampleadmin")?.toString());
-        // this.router.navigate(['/adminaddpolicy']);
+        localStorage.setItem("adminpolicyid",this.members[0][0].memberId.toString());
+        console.log(localStorage.getItem("adminpolicyid"));
+      //   localStorage.setItem("exampleadmin",member.memberId.toString());
+      // console.log(localStorage.getItem("exampleadmin")?.toString());
+        this.router.navigate(['/adminaddpolicy']);
       }
     )
   }

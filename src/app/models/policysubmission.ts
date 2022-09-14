@@ -3,7 +3,7 @@ export interface PolicyFields {
     policyStatus : any,
     PolicyType : any,
     PremiumAmount:any,
-    PolicyEffectiveDate: string,
+    PolicyEffectiveDate: any,
     remark:string,
     memberId : any
 }
