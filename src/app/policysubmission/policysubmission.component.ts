@@ -17,7 +17,7 @@ fields : PolicyFields = {
   PremiumAmount:0,
   PolicyEffectiveDate: '',
   remark:'',
-  memberId : localStorage.getItem("examplemember")?.toString(),
+  memberId : localStorage.getItem("example")?.toString(),
 }
 
 response:any;
