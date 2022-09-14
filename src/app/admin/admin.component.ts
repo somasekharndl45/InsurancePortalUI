@@ -59,23 +59,23 @@ export class AdminComponent implements OnInit {
       }
     )
   }
-  onRedirect(){
+  onRedirect(member:MemberRegister){
     this.memberService.MemberSearch(this.member)
     .subscribe(
       response =>{
-        this.members = response;
-        console.log(this.members)
-        localStorage.setItem("example",this.member.memberId.toString());
-      console.log(localStorage.getItem("example")?.toString());
-        this.router.navigate(['/adminaddpolicy']);
+        this.member = response;
+        console.log(member);
+        localStorage.setItem("exampleadmin",member.memberId.toString());
+      console.log(localStorage.getItem("exampleadmin")?.toString());
+        // this.router.navigate(['/adminaddpolicy']);
       }
     )
   }
 
   updatepolicy(member:MemberRegister){
     console.log(member);
-    localStorage.setItem("example",member.memberId.toString());
-    console.log(localStorage.getItem("example")?.toString());
+    localStorage.setItem("memberId",member.memberId.toString());
+    console.log(localStorage.getItem("memberId")?.toString());
 
     localStorage.setItem("policystatus",member.policyStatus.toString());
     console.log(localStorage.getItem("policystatus")?.toString());

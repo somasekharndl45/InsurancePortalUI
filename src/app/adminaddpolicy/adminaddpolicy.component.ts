@@ -18,7 +18,7 @@ export class AdminaddpolicyComponent implements OnInit {
     PremiumAmount:0,
     PolicyEffectiveDate: '',
     remark:'',
-    memberId : localStorage.getItem("example")?.toString(),
+    memberId : localStorage.getItem("exampleadmin")?.toString(),
   }
   response:any;
   constructor(private policyservices : PolicyServices,private router: Router) { }

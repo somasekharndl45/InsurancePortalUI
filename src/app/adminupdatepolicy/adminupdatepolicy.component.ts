@@ -17,7 +17,7 @@ export class AdminupdatepolicyComponent implements OnInit {
     PremiumAmount:localStorage.getItem("premiumamount"),
     PolicyEffectiveDate: '',
     remark:'',
-    memberId : localStorage.getItem("example")?.toString(),
+    memberId : localStorage.getItem("memberid")?.toString(),
   }
   response:any;
 
@@ -34,8 +34,8 @@ export class AdminupdatepolicyComponent implements OnInit {
       this.router.navigate(['/admin'])
       }
     );
-    localStorage.setItem("example",this.fields.memberId.toString());
-      console.log(localStorage.getItem("example")?.toString());
+    // localStorage.setItem("example",this.fields.memberId.toString());
+    //   console.log(localStorage.getItem("example")?.toString());
   }
     
   

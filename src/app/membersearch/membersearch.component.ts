@@ -62,17 +62,17 @@ norecord(){
     )
   }
 
-  onRedirect(member:MemberRegister){
-    this.memberService.MemberSearch(this.member)
-    .subscribe(
-      response =>{
-        this.members = response;
-        console.log(this.members)
-        localStorage.setItem("example",this.member.memberId.toString());
-      console.log(localStorage.getItem("example")?.toString());
-        this.router.navigate(['/policysubmission']);
-      }
-    )
+  onRedirect(){
+   // console.log(this.members[0][0].memberId)
+    // this.memberService.MemberSearch(this.members)
+    // .subscribe(
+    //   response =>{
+    //     this.members = response;
+    //     console.log(this.members[0].memberId)
+       localStorage.setItem("memberpolicyid",this.members[0][0].memberId.toString());
+      console.log(localStorage.getItem("memberpolicyid"));
+         this.router.navigate(['/policysubmission']);
   }
+  
 
 }
