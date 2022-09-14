@@ -22,7 +22,7 @@ MemberSearch(search:MemberRegister):Observable<any>{
     queryparams = queryparams.append("FirstName",search.firstName);
     queryparams = queryparams.append("LastName",search.lastName);
     queryparams = queryparams.append("policyStatus",search.policyStatus);
-     
+     queryparams = queryparams.append("policyId",search.policyId)
     return this.http.get<any>(this.Url,{params:queryparams});
 }
 

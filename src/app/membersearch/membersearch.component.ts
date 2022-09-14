@@ -62,7 +62,7 @@ norecord(){
     )
   }
 
-  onRedirect(){
+  onRedirect(member:MemberRegister){
     this.memberService.MemberSearch(this.member)
     .subscribe(
       response =>{

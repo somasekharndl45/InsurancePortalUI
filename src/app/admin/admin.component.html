@@ -59,6 +59,18 @@
                   <div style="Color:red" *ngIf="policystatus.errors?.['required']">Policy Status is required</div>
                 </div>
               </div>
+              <div class="form-group">
+                <label for="pid">PolicyID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="pid"
+                  [(ngModel)]="member.policyId"
+                  required
+                  #pid="ngModel"
+                />
+                <div style="Color:red" *ngIf="pid.errors?.['required'] && pid.touched" class="text-danger">PolicyID Required.</div>
+              </div>
         <div class="form-group">
             
         </div>
