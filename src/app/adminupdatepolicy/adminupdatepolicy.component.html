@@ -20,7 +20,7 @@
           </span> -->
           <span name="memberId" [innerHTML]="fields.memberId"></span>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="policystatus">Policy Status</label>
           <input
             type="text"
@@ -34,7 +34,26 @@
           <div class="alert-danger" *ngIf="f.submitted && policystatus.invalid">
             <div style="Color:red" *ngIf="policystatus.errors?.['required']">policystatus is required</div>
           </div>
-        </div>
+        </div> -->
+        <div class="form-group">
+            <label for="policystatus">PolicyStatus</label>
+            <select 
+            class="form-control" 
+            name="policystatus"
+            [(ngModel)]="fields.policyStatus"
+            required
+            #policystatus="ngModel">
+            <option value="Freelookup">Freelookup</option>
+            <option value="Active">Active</option>
+            <option value="Lapsed">Lapsed</option>
+            <option value="Surrendered">Surrendered</option>
+            <option value="Claimed">Claimed</option>
+            <option value="Loan">Loan</option>
+            </select>
+            <div class="alert-danger" *ngIf="f.submitted && policystatus.invalid">
+              <div style="Color:red" *ngIf="policystatus.errors?.['required']">Policy Status is required</div>
+            </div>
+          </div>
             <div class="form-group">
                 <label for="policytype">Policy Type</label>
                 <input

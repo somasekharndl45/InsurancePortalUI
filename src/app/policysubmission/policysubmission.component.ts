@@ -32,9 +32,8 @@ response:any;
       response => {
         console.log(response);
       this.response = response;
-      this.router.navigate(['/member']);
+      this.router.navigate(['/membersearch']);
       }
     );
   }
-
 }
