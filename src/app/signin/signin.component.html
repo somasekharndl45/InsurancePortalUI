@@ -1,7 +1,17 @@
-<div class="container">
-  <div class="cards-container">
-    <div class="cards-form">
+<nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
+  <h2 class="navbar-brand mx-auto">Insurance Member Portal</h2>
+</nav>
+&nbsp;
+&nbsp;
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+    <div class="card card-primary">
+      <div class="card-header">
+        <h3 style="text-align: center; color:brown" class="card-title">Login Page</h3>
       <form #f="ngForm" (ngSubmit)="onSubmit()">
+        <div class="card-body">
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -39,17 +49,21 @@
         <div *ngIf="errorMessage"> 
             <h4 style="Color:red">Invalid Credentials</h4>
         </div>
+      </div>
         <div class="form-group">
-          <button class="btn btn-primary">
+          <button style="background-color: blue;"  class="btn btn-primary">
             <a (click)='onSubmit()'>Login</a>
           </button>
         </div>
         <h1>New User?</h1>
-      <button class="btn btn-primary">
+      <button  class="btn btn-primary">
         <a href="register" (click)='onSubmit()'>Register</a>
       </button>
       </form>
     </div>
+    </div>
   </div>
 </div>
+</div>
+
 <router-outlet></router-outlet>

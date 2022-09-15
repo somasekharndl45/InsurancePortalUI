@@ -1,13 +1,21 @@
-<div class="container">
-    <div class="cards-container">
-      <div class="cards-form">
-       
+<nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
+  <h2 class="navbar-brand mx-auto">Insurance Member Portal</h2>
+</nav>
+&nbsp;
+&nbsp;
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-5">
+       <div class="card">
+        <div class="card-header">
         <!-- <form #f="ngForm" (ngSubmit)="onSubmit()"> -->
           <form
           name="form"
           (ngSubmit)="f.form.valid && onSubmit()"
           #f="ngForm"
           validate
+          class="form-horizontal"
         >
         <h4 style="Color:red">Admin Update Policy</h4>
         <div class="form-group">
@@ -35,8 +43,9 @@
             <div style="Color:red" *ngIf="policystatus.errors?.['required']">policystatus is required</div>
           </div>
         </div> -->
-        <div class="form-group">
-            <label for="policystatus">PolicyStatus</label>
+        <div class="form-group row">
+            <label class="col-sm-3 col=form-label" for="policystatus">PolicyStatus</label>
+            <div class="col-sm-9">
             <select 
             class="form-control" 
             name="policystatus"
@@ -50,26 +59,33 @@
             <option value="Claimed">Claimed</option>
             <option value="Loan">Loan</option>
             </select>
+          </div>
             <div class="alert-danger" *ngIf="f.submitted && policystatus.invalid">
               <div style="Color:red" *ngIf="policystatus.errors?.['required']">Policy Status is required</div>
             </div>
           </div>
-            <div class="form-group">
-                <label for="policytype">Policy Type</label>
-                <input
-                  type="text"
+            <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="policytype">Policy Type</label>
+                <div class="col-sm-9">
+                <select
                   class="form-control"
                   name="policytype"
                   [(ngModel)]="fields.PolicyType"
                   required
                   #policytype="ngModel"
-                />
+                >
+                <option value="Life Insurance">Life Insurance</option>
+                <option value="Property Insurance">Property Insurance</option>
+                <option value="Health Insurance">Health Insurance</option>
+                </select>
+                </div>
                 <div class="alert-danger" *ngIf="f.submitted && policytype.invalid">
                   <div style="Color:red" *ngIf="policytype.errors?.['required']">PolicyType is required</div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="premiumamount">Premium Amount</label>
+              <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="premiumamount">Premium Amount</label>
+                <div class="col-sm-9">
                 <input
                   type="text"
                   class="form-control"
@@ -78,13 +94,14 @@
                   required
                   #premiumamount="ngModel"
                 />
-               
+              </div>
                 <div class="alert-danger" *ngIf="f.submitted && premiumamount.invalid">
                   <div style="Color:red" *ngIf="premiumamount.errors?.['required']">PremiumAmount is required</div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="claimdate">Claim Date</label>
+              <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="claimdate">Claim Date</label>
+                <div class="col-sm-9">
                 <input
                   type="date"
                   class="form-control"
@@ -93,12 +110,14 @@
                   required
                   #claimdate="ngModel"
                 />
+              </div>
                 <div class="alert-danger" *ngIf="f.submitted && claimdate.invalid">
                   <div style="Color:red" *ngIf="claimdate.errors?.['required']">Claim Date is required</div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="remark">Remarks</label>
+              <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="remark">Remarks</label>
+                <div class="col-sm-9">
                 <input
                   type="text"
                   class="form-control"
@@ -107,14 +126,25 @@
                   required
                   #remark="ngModel"
                 />
+              </div>
                 <!-- <div class="alert-danger" *ngIf="f.submitted && remark.invalid">
                   <div style="Color:red" *ngIf="remark.errors?.['required']"> required</div>
                 </div> -->
               </div>
+              <div>
+                <p *ngIf="success"> {{this.field.result}} </p>
+              </div>
               <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="onSubmit()">Update claim</button>
+                <button style="background-color: blue;"  class="btn btn-primary btn-block" (click)="onSubmit()">Update Policy</button>
+              </div>
+              <div *ngIf="showField">
+                <button (click)="onLinkUpdate()">
+                  Back To Search
+                </button>
               </div>
         </form>
+      </div>
+      </div>
       </div>
     </div>
   </div>

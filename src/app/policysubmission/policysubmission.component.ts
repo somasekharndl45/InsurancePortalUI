@@ -9,7 +9,7 @@ import { PolicyServices } from '../services/policyservice';
   styleUrls: ['./policysubmission.component.css']
 })
 export class PolicysubmissionComponent implements OnInit {
-
+  field : any ={};
 fields : PolicyFields = {
   policyID : 0,
   policyStatus : '',
@@ -26,14 +26,24 @@ response:any;
   ngOnInit(): void {
   }
 
+  Success:boolean = false;
+  showField:boolean=false;
+
   onSubmit(){
     this.policyservices.Policyregister(this.fields)
     .subscribe(
       response => {
-        console.log(response);
-      this.response = response;
-      this.router.navigate(['/membersearch']);
+        // console.log(response);
+      this.field = response;
+      console.log(this.field);
+      this.Success = true;
+      this.showField = true;
+      //this.router.navigate(['/membersearch']);
       }
     );
   }
+  onMemderAdd(){
+    this.router.navigate(['/membersearch']);
+  }
+
 }

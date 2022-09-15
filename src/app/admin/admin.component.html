@@ -1,10 +1,20 @@
-<div class="container">
-    <div class="cards-container">
-        <div class="cards-form">
+<nav class="navbar navbar-expand navbar-dark bg-primary sticky-top">
+  <h2 class="navbar-brand mx-auto">Insurance Member Portal</h2>
+</nav>
+&nbsp;
+&nbsp;
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+        <div class="col-md-5">
+          <div class="card">
+            <div class="card-header">
           <h4 style="Color:red">Admin Search</h4>
-          <form #f="ngForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="mid">MemberID</label>
+          <form #f="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+            <div class="card-body">
+            <div class="form-group row">
+              <label class="col-sm-3 col=form-label" for="mid">MemberID</label>
+              <div class="col-sm-9">
               <input
                 type="text"
                 class="form-control"
@@ -13,10 +23,12 @@
                 required
                 #mid="ngModel"
               />
+            </div>
               <div style="Color:red" *ngIf="mid.errors?.['required'] && mid.touched" class="text-danger">MemberId Required.</div>
             </div>
-            <div class="form-group">
-              <label for="firstname">FirstName</label>
+            <div class="form-group row">
+              <label class="col-sm-3 col=form-label" for="firstname">FirstName</label>
+              <div class="col-sm-9">
               <input
                 type="text"
                 class="form-control"
@@ -25,11 +37,13 @@
                 required
                 #firstname="ngModel"
               />
+            </div>
               <div style="Color:red" *ngIf="firstname.errors?.['required'] && firstname.touched" class="text-danger">FirstName Required.</div>
             </div>
          
-            <div class="form-group">
-                <label for="lastname">LastName</label>
+            <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="lastname">LastName</label>
+                <div class="col-sm-9">
                 <input
                   type="text"
                   class="form-control"
@@ -38,10 +52,12 @@
                   required
                   #lastname="ngModel"
                 />
+              </div>
                 <div style="Color:red" *ngIf="lastname.errors?.['required'] && lastname.touched" class="text-danger">LastName Required.</div>
               </div>
-              <div class="form-group">
-                <label for="policystatus">PolicyStatus</label>
+              <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="policystatus">PolicyStatus</label>
+                <div class="col-sm-9">
                 <select 
                 class="form-control" 
                 name="policystatus"
@@ -55,12 +71,14 @@
                 <option value="Claimed">Claimed</option>
                 <option value="Loan">Loan</option>
                 </select>
+              </div>
                 <div class="alert-danger" *ngIf="f.submitted && policystatus.invalid">
                   <!-- <div style="Color:red" *ngIf="policystatus.errors?.['required']">Policy Status is required</div> -->
                 </div>
               </div>
-              <div class="form-group">
-                <label for="pid">PolicyID</label>
+              <div class="form-group row">
+                <label class="col-sm-3 col=form-label" for="pid">PolicyID</label>
+                <div class="col-sm-9">
                 <input
                   type="text"
                   class="form-control"
@@ -69,16 +87,20 @@
                   required
                   #pid="ngModel"
                 />
-                <div style="Color:red" *ngIf="pid.errors?.['required'] && pid.touched" class="text-danger">PolicyID Required.</div>
+              </div>
+                <!-- <div style="Color:red" *ngIf="pid.errors?.['required'] && pid.touched" class="text-danger">PolicyID Required.</div> -->
               </div>
         <div class="form-group">
             
         </div>
         <div class="form-group">
-          <button class="btn btn-primary btn-block" (click)="onSubmit()">Search</button>
+          <button style="background-color: blue;"  class="btn btn-primary btn-block" (click)="onSubmit()">Search</button>
         </div>
+      </div>
           </form>
-
+        </div>
+        </div>
+        </div>
     <div class="row" *ngIf = 'members[0]!="No user found" '>
         <div class="table table-responsive" id="user" >
             <div class="table-responsive" >
@@ -107,12 +129,13 @@
                         <td>{{member.policyStatus}} </td>
                         <td>{{member.policyType}} </td>
                         <td>{{member.premiumAmount}} </td>
-                        <td> <input type="checkbox"/></td>
+                        <td> <input type="checkbox" value="add" id="add" (click)="onRedirect(member)" /></td>
                         <td><input type ="checkbox" value="updates"  id="updates"  (click)="updatepolicy(member)" /> </td>
                     </tr>
                 </tbody>
                 <div class="form-group">
-                  <button class="btn btn-primary btn-block" (click)="onRedirect(member)">AddClaim</button>
+                  <button *ngIf="add" class="btn btn-primary btn-block" (click)="onaddpolicy()">Add Policy</button>
+                  <button *ngIf="update" class="btn btn-primary btn-block" (click)="onupdatepolicy()">Update  Policy</button>
                 </div>
                 </table>
             </div>
@@ -122,7 +145,7 @@
     <div class="row" *ngIf = 'members[0]=="No user found" '>
       <span style="color: red;">No records found for given inputs</span>
     </div>
-    </div>
+   
     </div>
   </div>
   

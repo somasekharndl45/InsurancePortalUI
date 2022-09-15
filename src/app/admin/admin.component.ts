@@ -35,6 +35,9 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  add : boolean = false;
+  update : boolean = false;
+
   onSubmit(){
     this.memberService.MemberSearch(this.member)
     .subscribe(
@@ -60,6 +63,10 @@ export class AdminComponent implements OnInit {
     )
   }
   onRedirect(member:MemberRegister){
+
+    this.update = false;
+    this.add = true;
+
     this.memberService.MemberSearch(this.member)
     .subscribe(
       response =>{
@@ -69,12 +76,24 @@ export class AdminComponent implements OnInit {
         console.log(localStorage.getItem("adminpolicyid"));
       //   localStorage.setItem("exampleadmin",member.memberId.toString());
       // console.log(localStorage.getItem("exampleadmin")?.toString());
-        this.router.navigate(['/adminaddpolicy']);
+       // this.router.navigate(['/adminaddpolicy']);
       }
     )
   }
 
+  onaddpolicy(){
+    this.router.navigate(['/adminaddpolicy']);
+  }
+
+  onupdatepolicy(){
+    this.router.navigate(['/adminupdatepolicy'])
+  }
+
   updatepolicy(member:MemberRegister){
+  
+    this.update = true;
+    this.add = false;
+
     console.log(member);
     localStorage.setItem("memberId",member.memberId.toString());
     console.log(localStorage.getItem("memberId")?.toString());
@@ -89,8 +108,10 @@ export class AdminComponent implements OnInit {
     console.log(localStorage.getItem("premiumamount"));
 
 
-    this.router.navigate(['/adminupdatepolicy'])
+   // this.router.navigate(['/adminupdatepolicy'])
    
   }
+
+
 
 }

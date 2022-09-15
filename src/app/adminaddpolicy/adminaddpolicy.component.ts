@@ -10,7 +10,7 @@ import { PolicyServices } from '../services/policyservice';
   styleUrls: ['./adminaddpolicy.component.css']
 })
 export class AdminaddpolicyComponent implements OnInit {
-
+field : any ={};
   fields : PolicyFields = {
     policyID : 0,
     policyStatus : '',
@@ -21,20 +21,33 @@ export class AdminaddpolicyComponent implements OnInit {
     memberId : localStorage.getItem("adminpolicyid"),
   }
   response:any;
+  Success:boolean = false;
+  showField:boolean=false;
   constructor(private policyservices : PolicyServices,private router: Router) { }
 
   ngOnInit(): void {
   }
-
+   
   onSubmit(){
     this.policyservices.Policyregister(this.fields)
     .subscribe(
       response => {
-        console.log(response);
-      this.response = response;
-      this.router.navigate(['/admin'])
+        // console.log(response);
+      this.field = response;
+      console.log(this.field);
+      this.Success = true;
+      this.showField = true;
+      // alert(this.field);
+      //this.router.navigate(['/admin'])
       }
     );
+  
+  }
+  
+  
+
+  Onlinkhere(){
+    this.router.navigate(['/admin'])
   }
 
 }
