@@ -57,7 +57,9 @@
               <div style="Color:red" *ngIf="userrole.errors?.['required']">Userrole is required</div>
             </div>
           </div>
-      
+          <div *ngIf="errorMessage"> 
+            <h4 style="Color:red">UserName already exsits</h4>
+        </div>
       <div class="form-group">
         <!-- <a href='member'  type="button" class="btn btn-primary btn-block" (click)="onSubmit(f)" >Register</a> -->
         <button   class="btn btn-primary btn-block" 
