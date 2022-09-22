@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Credentials } from './models/credentials';
 import { LoginServices } from './services/signinservice';
-
+import { SigninComponent } from './signin/signin.component';
 
 @Component({
   selector: 'app-root',
@@ -65,5 +65,15 @@ else if(this.userRole == 'Member'){
 //   registerClick() {
 //     this.isNewUser=true  
 // };
+
+getstatus():any{
+  return localStorage.getItem("username");
+
+}
+
+onLogout(){
+  localStorage.setItem("username","");
+  this.router.navigate(['/signin'])
+}
 
 }

@@ -13,6 +13,7 @@ import { MembersearchComponent } from './membersearch/membersearch.component';
 import { PolicysubmissionComponent } from './policysubmission/policysubmission.component';
 import { AdminaddpolicyComponent } from './adminaddpolicy/adminaddpolicy.component';
 import { AdminupdatepolicyComponent } from './adminupdatepolicy/adminupdatepolicy.component';
+import { AuthService } from './services/authservice';
 
 
 @NgModule({
@@ -33,7 +34,9 @@ import { AdminupdatepolicyComponent } from './adminupdatepolicy/adminupdatepolic
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

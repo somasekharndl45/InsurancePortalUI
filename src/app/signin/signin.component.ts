@@ -2,7 +2,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Credentials } from '../models/credentials';
 import { LoginServices } from '../services/signinservice';
-
+import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/authservice';
 
 @Component({
   selector: 'app-signin',
@@ -25,14 +26,17 @@ response : any;
   ngOnInit(): void {
   }
 
-onSubmit(){
+onSubmit(f:NgForm){
+  console.log(f.value);
   console.log("hello");
+  
   if(this.cred.userName!='' && this.cred.password!=''){
     this.loginservice.login(this.cred)
     .subscribe(
       response => {
         console.log(response);
         this.response = response;
+      
         localStorage.setItem('response',this.response.response)
         if(this.response.token=='')
         {
@@ -44,10 +48,14 @@ onSubmit(){
         else{
           if(this.response.role=='Member')
           {
+            localStorage.setItem("username",this.cred.userName);
+            console.log(localStorage.getItem("username"));
           console.log("else");
           this.router.navigate(['/membersearch']);
           }
           else{
+            localStorage.setItem("username",this.cred.userName);
+            console.log(localStorage.getItem("username"));
             this.router.navigate(['/admin']);
           }
         }
@@ -79,5 +87,7 @@ onSubmit(){
   //     }
   //   )
   // }
-
+  onRegister(){
+    this.router.navigate(['/register']);
+  }
 }
