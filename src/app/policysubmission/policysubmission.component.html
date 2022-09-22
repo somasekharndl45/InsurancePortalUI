@@ -44,22 +44,44 @@
             <div style="Color:red" *ngIf="policystatus.errors?.['required']">policystatus is required</div>
           </div>
         </div> -->
-            <div class="form-group row">
+        <div class="form-group row">
+          <label class="col-sm-3 col=form-label"  for="policytype">Policy Type</label>
+          <div class="col-sm-9">
+          <select
+            class="form-control"
+            name="policytype"
+            [(ngModel)]="fields.PolicyType"
+            required
+            #policytype="ngModel"
+          >
+          <option value="Life Insurance">Life Insurance</option>
+          <option value="Property Insurance">Property Insurance</option>
+          <option value="Health Insurance">Health Insurance</option>
+          </select>
+          </div>
+          <div class="alert-danger" *ngIf="f.submitted && policytype.invalid">
+            <div style="Color:red" *ngIf="policytype.errors?.['required']">PolicyType is required</div>
+          </div>
+        </div>
+            <!-- <div class="form-group row">
                 <label class="col-sm-3 col=form-label" for="policytype">Policy Type</label>
                 <div class="col-sm-9">
-                <input
-                  type="text"
+                <select
                   class="form-control"
                   name="policytype"
                   [(ngModel)]="fields.PolicyType"
                   required
                   #policytype="ngModel"
-                />
+                >
+                <option value="Life Insurance">Life Insurance</option>
+                <option value="Property Insurance">Property Insurance</option>
+                <option value="Health Insurance">Health Insurance</option>
+                </select>
               </div>
                 <div class="alert-danger" *ngIf="f.submitted && policytype.invalid">
                   <div style="Color:red" *ngIf="policytype.errors?.['required']">PolicyType is required</div>
                 </div>
-              </div>
+              </div> -->
               <div class="form-group row">
                 <label class="col-sm-3 col=form-label" for="premiumamount">Premium Amount</label>
                 <div class="col-sm-9">
@@ -108,8 +130,8 @@
                   <div style="Color:red" *ngIf="remark.errors?.['required']"> required</div>
                 </div> -->
               </div>
-              <div>
-                <p *ngIf="Success"> {{this.field.result}} </p>
+              <div >
+                <p  *ngIf="Success"> {{this.field.result}} </p>
               </div>
               <div class="form-group">
                 <button style="background-color: blue;"  class="btn btn-primary btn-block" (click)="onSubmit()">Add Policy</button>

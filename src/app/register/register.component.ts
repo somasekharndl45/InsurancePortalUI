@@ -32,6 +32,17 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       response => {
         console.log(response);
+        this.response = response;
+        if(this.response.result == 'UserName already exists')
+        {
+          console.log("User exists")
+          this.errorMessage="UserName Already exists";
+          return;
+        }
+        else{
+          console.log("else");
+         this.router.navigate(['/membersearch']);
+        }
         this.isSuccessful = true;
         this.isSignUpFailed = false;
         this.router.navigate(['/member']);

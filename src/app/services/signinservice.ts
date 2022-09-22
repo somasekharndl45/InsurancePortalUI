@@ -10,8 +10,8 @@ import { Users } from '../models/user';
   
   export class LoginServices{
     // baseUrl = 'https://localhost:7238/Insurance/Login/'
-    baseUrl='https://localhost:7110/api/Authentication'
-     registerUrl ='https://localhost:7238/Insurance/CreateMembers/'
+    baseUrl='https://authenticationapi20220916164126.azurewebsites.net/api/Authentication'
+     registerUrl ='https://insuranceportalservice.azurewebsites.net/Insurance/CreateMembers'
     constructor(private http: HttpClient) { }
 
     login(credential : Credentials):Observable<Credentials[]>{

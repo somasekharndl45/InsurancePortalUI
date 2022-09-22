@@ -54,10 +54,13 @@ onSubmit(){
       }
     )
   }
+  
 }
 
 
-
+onRegister(){
+  this.router.navigate(['/register']);
+}
 
 
   // onSubmit(){
