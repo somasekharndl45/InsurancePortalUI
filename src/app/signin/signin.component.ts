@@ -62,10 +62,13 @@ onSubmit(f:NgForm){
       }
     )
   }
+  
 }
 
 
-
+onRegister(){
+  this.router.navigate(['/register']);
+}
 
 
   // onSubmit(){
@@ -87,7 +90,5 @@ onSubmit(f:NgForm){
   //     }
   //   )
   // }
-  onRegister(){
-    this.router.navigate(['/register']);
-  }
+ 
 }

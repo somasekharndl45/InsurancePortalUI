@@ -8,7 +8,8 @@ import { MemberRegister } from '../models/memberregistration';
   })
 
   export class Registerservices{
-    baseUrl = 'https://localhost:7238/Insurance/Members/'
+    // baseUrl = 'https://localhost:7238/Insurance/Members/'
+    baseUrl ='https://insuranceportalservice.azurewebsites.net/Insurance/Members'
     constructor(private http: HttpClient) { }
 
     register(mr : MemberRegister): Observable<MemberRegister> {

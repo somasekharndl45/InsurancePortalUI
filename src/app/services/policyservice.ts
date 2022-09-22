@@ -8,10 +8,11 @@ import { PolicyFields } from '../models/policysubmission';
   })
 
   export class PolicyServices{
-    baseUrl ='https://localhost:7238/Insurance/CreateClaimSubmission/'
-    updateUrl ='https://localhost:7238/Insurance/EditPolicy/'
+    // baseUrl ='https://localhost:7238/Insurance/CreateClaimSubmission/'
+    // updateUrl ='https://localhost:7238/Insurance/EditPolicy/'
     constructor(private http: HttpClient) { }
-
+baseUrl ='https://insuranceportalservice.azurewebsites.net/Insurance/CreateClaimSubmission'
+updateUrl ='https://insuranceportalservice.azurewebsites.net/Insurance/EditPolicy'
     Policyregister(policyfield : PolicyFields): Observable<PolicyFields> {
         return this.http.post<PolicyFields>(this.baseUrl, policyfield
             );

@@ -8,8 +8,10 @@ import { MemberRegister } from '../models/memberregistration';
   })
 
   export class searchMembers{
-    baseUrl = 'https://localhost:7238/Insurance/Members';
-    Url = 'https://localhost:7238/Insurance/SearchUser/GetById';
+    // baseUrl = 'https://localhost:7238/Insurance/Members';
+    // Url = 'https://localhost:7238/Insurance/SearchUser/GetById';
+    baseUrl='https://insuranceportalservice.azurewebsites.net/Insurance/Members'
+    Url ='https://insuranceportalservice.azurewebsites.net/Insurance/SearchUser/GetById'
     constructor(private http: HttpClient) { }
 
     member(memberregister : MemberRegister):Observable<MemberRegister[]>{
